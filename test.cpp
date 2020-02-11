@@ -1,3 +1,5 @@
+#include "traitement.hpp"
+#include "network.hpp"
 #include <cairo.h>
 #include <gtk/gtk.h>
 #include <librsvg/rsvg.h>
@@ -5,6 +7,7 @@
 #include <tinyxml2.h>
 
 using namespace tinyxml2;
+
 
 static void do_drawing(cairo_t *);
 static void do_drawing_svg(cairo_t *);
@@ -29,6 +32,7 @@ static void do_drawing_svg(cairo_t * cr)
 
 int main(int argc, char *argv[])
 {
+  //On gère la fenêtre
   GtkWidget *window;
   GtkWidget *darea;
 
@@ -61,6 +65,12 @@ int main(int argc, char *argv[])
   gtk_widget_show_all(window);
 
   gtk_main();
-
+  //Fin de la fenêtre
+  
+  //Ouverture socket & co
+  Traitement t;
+  while(1){
+    t.recvAndModif();
+  }
   return 0;
 }
