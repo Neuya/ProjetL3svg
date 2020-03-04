@@ -1,0 +1,3 @@
+/home/user/projetAudacity/premierProg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/user/projetAudacity/premierProg/cmake-build-debug/CMakeFiles/premierProg.dir
+/home/user/projetAudacity/premierProg/cmake-build-debug/CMakeFiles/edit_cache.dir
