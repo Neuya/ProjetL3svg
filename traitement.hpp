@@ -2,6 +2,8 @@
 #define _TRAITEMENT_HPP
 
 #include "network.hpp"
+#include <map>
+#include <string>
 class Traitement
 {
 private:
@@ -9,6 +11,7 @@ private:
 	public:
 	Traitement();
 	void recvAndModif();
+	std::map<std::string,std::string> constructMapDrivens(char*);
 };
 
 

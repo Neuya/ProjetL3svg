@@ -24,7 +24,7 @@ private:
 public:
 	Network();
 	void creer_socket();
-	std::string recevoir_donnees();
+	char* recevoir_donnees();
 };
 
 #endif

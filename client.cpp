@@ -14,7 +14,7 @@
   
 // Driver code 
 /*int main() { 
-        int sockfd; 
+     int sockfd; 
     char buffer[MAXLINE]; 
     string hello = "Hello from client"; 
     struct sockaddr_in     servaddr; 
@@ -30,40 +30,73 @@
     // Filling server information 
     servaddr.sin_family = AF_INET; 
     servaddr.sin_port = htons(PORT); 
-    servaddr.sin_addr.s_addr = INADDR_ANY; 
+    servaddr.sin_addr.s_addr = INADDR_ANY;
+    int sunX,sunY; 
 
-    cbor item = 
-    cbor::map {
-        {"sun_x", "18"},
-        {"sun_y", "19"},
+    default_random_engine generator;
+    uniform_int_distribution<int> distribution(0,100);
+    //string sunx,suny;
+    
+    int j=0;
+    
+    while(j < 100)
+    {
+
+    sunX = rand() % 100 + 1;
+    sunY = rand() % 100 +1;
+    cout<< sunX << sunY << endl;
+    
+    string sunx = to_string(sunX);
+    string suny = to_string(sunY);
+
+    cout<< sunx << suny << endl;
+
+    
+    cbor::map data = {
+        {"sun_x", sunx},
+        {"sun_y", suny},
         {"test_o", "25"}
     };
 
-    cbor::binary data = cbor::encode(item);
+    cout<< cbor::debug(data) << endl;
+
+    cbor::binary encoded = cbor::encode(data);
+    cout << cbor::debug(encoded) << endl;
+    std::vector<unsigned char> v = encoded;
+
+    std::vector<unsigned char>::iterator it;
+
+    char* total = new char[v.size()];
+    int i=0;
+    for(it = v.begin(); it < v.end() ; ++it){
+        total[i]=(*it);
+        i++;
+    }
       
-    int n, len; 
-   /* 
-   sendto(sockfd, data, data.size(), 
+    cout << total << endl; 
+   
+   sendto(sockfd, total, strlen(total), 
         MSG_CONFIRM, 
         (const struct sockaddr *) &servaddr,  
         sizeof(servaddr)); 
     printf("message sent.\n");
 
-    cbor test = cbor::decode(data);
-    test.write(cout);
-    std::cout << cbor::debug(test) << endl;*/
+   /*sendto(sockfd, encoded.data(), encoded.size(), 
+        MSG_CONFIRM, 
+        (const struct sockaddr *) &servaddr,  
+        sizeof(servaddr)); 
+    printf("message sent.\n");
+    //std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    j++;
+    }
 
     /*std::cout << "DATA2 : " << std::endl;
     std::cout << cbor::debug(data) << std::endl;
 
     std::cout << "DATA decoded" << std::endl;
     cbor test1(data.data());
-    std::cout<< cbor::debug(test1) << std::endl;*/
-   /* cbor::string cstring(data);
-
-    cbor test_s(data);
-    cbor tttt = cbor::decode(test_s);
-    std::cout << cbor::debug(tttt) << std::endl;
+    std::cout<< cbor::debug(test1) << std::endl;
+    
     
   
     close(sockfd); 

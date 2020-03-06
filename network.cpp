@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <iostream>
 #include <string>
 #include "network.hpp"
@@ -35,18 +36,17 @@ void Network :: creer_socket()
 	}
 }
 
-string Network::recevoir_donnees()
+char* Network::recevoir_donnees()
 {
-	int ret = recvfrom(sock,buffer,1500,0,reinterpret_cast<sockaddr*>(&addr_client),&fromlen);
+	char* bufferNet;
+	bufferNet =  (char*)malloc(sizeof(char)*1024);
+	int ret = recvfrom(sock,bufferNet,1024,0,reinterpret_cast<sockaddr*>(&addr_client),&fromlen);
 	if(ret<0)
 	{
-		//erreur de réception...
+		cout << "erreur de reception..." << endl;
 	}
-	buffer[ret]='\0';
-	cout<<"Client : "<<buffer<<endl;
-
-	string s(buffer);
-
-	return s;
+	cout << "buffer network" << bufferNet << endl;
+	bufferNet[ret] = '\0';
+	return bufferNet;
 }
 
