@@ -20,13 +20,11 @@ void Traitement::recvAndModif()
 	char* buffer = net.recevoir_donnees();
 	cout<< "buffer : " << buffer << endl;
 	map<string,string> mapDrivenValue = constructMapDrivens(buffer);
-	for(map<string,string>::iterator it=mapDrivenValue.begin();it!=mapDrivenValue.end();it++)
+	/*for(map<string,string>::iterator it=mapDrivenValue.begin();it!=mapDrivenValue.end();it++)
     {
     	cout<<it->first<<" [] "<<it->second<<endl;
-    }
+    }*/
     free(buffer);
-	
-
 }
 
 map<string,string> Traitement::constructMapDrivens(char* buffer)
@@ -66,11 +64,11 @@ map<string,string> Traitement::constructMapDrivens(char* buffer)
     	mapReturn[it1]  =  it2;
     	it++;
     }
-
-    for(map<string,string>::iterator it=mapReturn.begin();it!=mapReturn.end();it++)
-    {
-    	//cout<<it->first<<" [] "<<it->second<<endl;
-    }
+//
+    //for(map<string,string>::iterator it=mapReturn.begin();it!=mapReturn.end();it++)
+    //{
+    //	//cout<<it->first<<" [] "<<it->second<<endl;
+    //}
 
     return mapReturn;
 }

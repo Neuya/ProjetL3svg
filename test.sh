@@ -1,4 +1,6 @@
-<svg width="100" height="100">
+#bin.sh
+
+echo '<svg width="100" height="100">
     <g id="sol">
         <rect x="0" y="80" width="100" height="20" fill="green" cx="110"/>
     </g>
@@ -19,3 +21,6 @@
         <polyline points="60 65 75 55 90 65" stroke="black" fill="red" stroke-width="1"/>
     </g>
 </svg>
+' > toto.svg
+make
+./main 2> error.txt
