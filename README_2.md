@@ -11,14 +11,14 @@ Personnes constituant le groupe
 Etat d'avancement du projet
 ---------------------------
 
-[x] Client _(fictif)_ et Serveur fonctionnels
-[x] Animation d'éléments multiples à partir d'une map d'éléments _(fonctionnel)_
+- [x] Client _(fictif)_ et Serveur fonctionnels
+- [x] Animation d'éléments multiples à partir d'une map d'éléments _(fonctionnel)_
 
 Travail Restant
 ---------------
 
-[] Faire le lien effectif entre le serveur et l'animation (en cours).
-[] Mettre en attente les instructions reçues par le serveur et stopper l'animation complète d'une map. 
+- [ ] Faire le lien effectif entre le serveur et l'animation (en cours).
+- [ ] Mettre en attente les instructions reçues par le serveur et stopper l'animation complète d'une map. 
 
 
 
