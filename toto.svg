@@ -5,14 +5,14 @@
     <g id="ciel" cx="110">
         <rect x="0" y="0" width="100" height="80" fill="blue"/>
         <g id="soleil">
-            <circle cx="0" cy="0" r="20" stroke="yellow" fill="orange" stroke-width="5">
+            <circle cx="80" cy="20" r="20" stroke="yellow" fill="orange" stroke-width="5">
                 <driven target="cx" by="sun_x"/>
                 <driven target="cy" by="sun_y"/>
             </circle>
         </g>
     </g>
     <g id="maison">
-        <rect x="0" y="0" width="30" height="23" fill="gray">
+        <rect x="60" y="65" width="30" height="23" fill="gray">
             <driven target="x" by="house_x"/>
             <driven target="y" by="house_y"/>
         </rect>
