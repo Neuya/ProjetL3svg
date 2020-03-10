@@ -141,7 +141,6 @@ static void do_drawing_svg(cairo_t * cr)
       cout << "Entrez la coordonée de cet element: ";
       cin >> coor;
       mapModifs[elem]=coor;
-      // mapModifs["sun_y"]="20";
   }
 }
 
