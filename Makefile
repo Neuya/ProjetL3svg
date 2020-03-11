@@ -5,7 +5,7 @@ LDFLAGS = $(shell pkg-config --libs cairo gtk+-3.0 librsvg-2.0 tinyxml2)
 # Compilteur
 CPPC := g++
 #options de compilation
-CPPFLAGS := --std=c++11 -Wall -Wextra -pedantic -ggdb
+CPPFLAGS := --std=c++11 -Wall -Wextra -pedantic -ggdb -pthread
 # Sources & objets
 SRC= $(wildcard *.cpp)
 OBJ= $(SRC:.cpp=.o)
