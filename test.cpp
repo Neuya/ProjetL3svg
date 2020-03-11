@@ -65,7 +65,7 @@ static void do_drawing_svg(cairo_t * cr)
 
   int val1 = 0;
   int val2 = 0;
-
+  bool mapDone = true;
   for(it=mapModifs.begin();it!=mapModifs.end();it++)
   {
     for (size_t i=0; i<14; i++)
@@ -87,6 +87,7 @@ static void do_drawing_svg(cairo_t * cr)
             //cout << " current_ posq : " << current_pos << " x new_pos : " << new_pos << endl;
             if (! (val1 == val2))
             {
+              mapDone = false;
               val1 > val2? val1--:val1++;
                   xmlElement[i].Parent()->ToElement()->SetAttribute(attribute,val1);
             }
@@ -105,32 +106,7 @@ static void do_drawing_svg(cairo_t * cr)
     }
   }
 
-  map<string,string>::iterator it2;
-  bool mapDone = true;
-  for(it2=mapModifs.begin();it2!=mapModifs.end();it2++)
-  {
-    for (size_t i=0; i<14; i++)
-    {
-      string s(xmlElement[i].Value());
-        if (s == "driven" &&  (xmlElement[i].FirstAttribute()->Next()->Value() == it2->first ))
-        {
-            string current_pos;
-            const char* new_pos= it2->second.c_str();
 
-            val2 = atoi(new_pos);
-
-            const char* attribute = xmlElement[i].FirstAttribute()->Value();
-
-            current_pos = xmlElement[i].Parent()->ToElement()->Attribute(attribute);
-
-            val1 = stoi(current_pos);
-            if (! (val1 == val2))
-            {
-              mapDone = false;
-            }
-          }
-      }
-  }
   if(mapDone)
   {
       cout<< "En attente" << endl;
