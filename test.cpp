@@ -111,12 +111,21 @@ static void do_drawing_svg(cairo_t * cr)
   {
       cout<< "En attente" << endl;
       string elem;
-      cout << "Entrez un element a modifier: ";
-      cin >> elem;
-      string coor;
-      cout << "Entrez la coordonée de cet element: ";
-      cin >> coor;
-      mapModifs[elem]=coor;
+      bool done = true;
+      while(done)
+      {
+        cout << "Entrez un element a modifier (Done pour terminer):  ";
+        cin >> elem;
+
+          string coor;
+          cout << "Entrez la coordonée de cet element: ";
+          cin >> coor;
+          mapModifs[elem]=coor;
+        if (elem == "Done")
+        {
+          done = false;
+        }
+      }
   }
 }
 
